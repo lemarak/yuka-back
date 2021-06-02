@@ -7,7 +7,7 @@ require("dotenv").config();
 const app = express();
 app.use(formidable());
 
-mongoose.connect("mongodb://localhost:27017/yuka-app", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
