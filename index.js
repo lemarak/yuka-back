@@ -13,6 +13,8 @@ mongoose.connect("mongodb://localhost:27017/yuka-app", {
 // Routes
 const userRoutes = require("./routes/user");
 app.use(userRoutes);
+const userProducts = require("./routes/product");
+app.use(userProducts);
 
 app.get("/", (req, res) => {
   res.json({ message: "Hi" });
