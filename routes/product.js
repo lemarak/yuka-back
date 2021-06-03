@@ -51,7 +51,9 @@ router.post(
 // get all products from an user
 router.get("/products/", isAuthenticated, async (req, res) => {
   try {
-    const products = await Product.find({ user: req.user }).sort("-dateScan");
+    const products = await Product.find({ user: req.user })
+      .sort("-dateScan")
+      .select("codeBar");
     console.log(products);
     res.status(200).json({
       products: products,

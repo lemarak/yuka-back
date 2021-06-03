@@ -33,7 +33,6 @@ router.post("/user/signup", async (req, res) => {
         res.status(200).json({
           _id: newUser._id,
           token: newUser.token,
-          account: newUser.account,
         });
       } else {
         res.status(400).json({ message: "Missing parameters" });
@@ -60,7 +59,6 @@ router.post("/user/login", async (req, res) => {
         res.status(200).json({
           _id: user._id,
           token: user.token,
-          account: user.account,
         });
       } else {
         res.status(401).json({ message: "Unauthorized" });
