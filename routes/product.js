@@ -15,7 +15,10 @@ router.post(
       const { codeBar } = req.fields;
       const user = req.user;
       const dateScan = new Date();
-      const product = await Product.findOne({ codeBar: codeBar, user: user });
+      const product = await Product.findOne({
+        codeBar: codeBar,
+        user: user,
+      }).select("codeBar");
 
       if (!product && req.product) {
         const newProduct = Product({
